@@ -90,7 +90,7 @@ const ShortInfoTab = () => {
   return (
     <div className="container">
       <div
-        className="w-full grid md:grid-cols-2 gap-10"
+        className="w-full grid md:grid-cols-2 gap-20"
         onMouseEnter={handleHoverIn}
         onMouseLeave={handleHoverOut}
       >

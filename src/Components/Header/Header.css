@@ -1,0 +1,7 @@
+.navBar {
+  transition: all 0.3s ease-in-out;
+}
+.navBar .active {
+  color: #030712;
+  font-weight: 500;
+}

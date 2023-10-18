@@ -12,7 +12,7 @@ const BannerSlide = ({ id, title, description, bgLink, redirectPath }) => {
         backgroundSize: "cover",
       }}
     >
-      <div className="max-w-2xl flex flex-col gap-4 text-center justify-center items-center relative z-10 text-white">
+      <div className="w-[90%] max-w-xl flex flex-col gap-4 text-center justify-center items-center relative z-10 text-white">
         <h1 className="text-4xl md:text-6xl font-black font-headingFont">
           {title}
         </h1>

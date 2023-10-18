@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
-import "./App.css";
-import Header from "./Components/Header";
+import Header from "./Components/Header/Header";
 import SocialBar from "./Components/SocialBar";
 import Footer from "./Components/Footer/Footer";
 
@@ -8,7 +7,9 @@ function App() {
   return (
     <>
       <Header />
-      <Outlet />
+      <div className="w-full mt-[85px]">
+        <Outlet />
+      </div>
       <SocialBar />
       <Footer />
     </>
