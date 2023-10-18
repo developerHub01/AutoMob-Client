@@ -42,10 +42,8 @@ const brandList = [
 
 const Brands = () => {
   return (
-    <div className="container max-w-6xl min-h-screen mx-auto py-20 flex flex-col justify-center items-center gap-8">
-      <h2 className="text-5xl font-bold text-gray-900 font-headingFont">
-        Our Brands Are
-      </h2>
+    <div className="container">
+      <h2 className="heading1">Our Brands Are</h2>
       <div className="w-full grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {brandList.map((brand) => (
           <Brand key={brand.id} {...brand} />
