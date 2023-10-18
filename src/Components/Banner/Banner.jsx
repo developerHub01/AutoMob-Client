@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 
 import "./Banner.css";
 // import required modules
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination, Keyboard } from "swiper/modules";
 import BannerSlide from "./BannerSlide";
 
 const bannersContent = [
@@ -80,9 +80,10 @@ const Banner = () => {
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
       }}
+      keyboard={true}
       onAutoplayTimeLeft={onAutoplayTimeLeft}
       navigation={true}
-      modules={[Pagination, Autoplay, Navigation]}
+      modules={[Pagination, Autoplay, Navigation, Keyboard]}
       className="mySwiper"
     >
       {bannersContent.map((bannerContent) => (
