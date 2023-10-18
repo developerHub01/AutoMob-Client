@@ -1,0 +1,4 @@
+#footerNav a:hover,
+#footerNav a.active {
+  color: #ffffff;
+}

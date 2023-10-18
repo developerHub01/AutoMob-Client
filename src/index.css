@@ -4,6 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  p,
+  a {
+    @apply leading-relaxed text-gray-300;
+  }
+}
+
 @layer components {
   .container {
     @apply w-[90%] max-w-6xl min-h-screen mx-auto py-20 flex flex-col justify-center items-center gap-8;
