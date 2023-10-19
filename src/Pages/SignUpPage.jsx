@@ -5,6 +5,8 @@ import { AuthContext } from "../Context/AuthProvider";
 import { toast } from "react-toastify";
 import auth from "../firebase/firebase.config";
 import { updateProfile } from "firebase/auth";
+import usePasswordVarification from "../CustomHook/usePasswordVarification";
+import * as EmailValidator from "email-validator";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -28,6 +30,17 @@ const SignUpPage = () => {
     e.preventDefault();
     console.log(signUpData);
     const { displayName, photoURL, email, password } = signUpData;
+
+    if (!EmailValidator.validate(email)) {
+      return toast("Email is not valid");
+    }
+
+    if (!usePasswordVarification(password)) {
+      return toast(
+        "Password must contain a uppercase and one special character and minimum length 6"
+      );
+    }
+
     console.log(signUpData);
     singUpUser(email, password)
       .then((userCredential) => {
