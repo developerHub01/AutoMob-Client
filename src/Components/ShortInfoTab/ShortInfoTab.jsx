@@ -94,7 +94,7 @@ const ShortInfoTab = () => {
         onMouseEnter={handleHoverIn}
         onMouseLeave={handleHoverOut}
       >
-        <div className="w-full h-full flex justify-center items-center relative before:content[''] before:absolute before:-z-10 before:top-4 before:left-4 before:w-full before:h-full before:bg-gray-900">
+        <div className="w-full h-full flex justify-center items-center relative before:content[''] before:absolute before:-z-10 before:top-5 before:left-5 before:w-full before:h-full before:bg-gray-900">
           <img src={imgLink} alt="" className="w-full h-full object-cover" />
           <div className="absolute w-[95%] flex justify-between items-center text-3xl text-white">
             <IoIosArrowBack

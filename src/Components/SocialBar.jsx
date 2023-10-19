@@ -11,7 +11,7 @@ import {
 
 const SocialBar = () => {
   return (
-    <ul className="fixed z-10 top-1/2 right-0 -translate-y-1/2">
+    <ul className="fixed hidden sm:block z-10 top-1/2 right-0 -translate-y-1/2">
       <li>
         <Link
           to="https://www.facebook.com/"

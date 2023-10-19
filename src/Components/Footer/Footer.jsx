@@ -62,8 +62,8 @@ const Footer = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/" className="transition-all delay-75">
-                My Product
+              <NavLink to="/addproduct" className="transition-all delay-75">
+                Add Product
               </NavLink>
             </li>
             <li>
