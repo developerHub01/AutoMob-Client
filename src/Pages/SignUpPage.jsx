@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { BsGoogle } from "react-icons/bs";
-import Logo from "../Components/Logo";
 import { Link } from "react-router-dom";
 
 const SignUpPage = () => {
@@ -27,8 +26,7 @@ const SignUpPage = () => {
       <div
         className="w-full h-full grid place-items-center"
         style={{
-          background:
-            'url("https://i.ibb.co/D9cmTRj/erik-mclean-ZRns2-R5azu0-unsplash.jpg")',
+          background: 'url("https://i.ibb.co/ngNfTrn/toyotaBg.jpg")',
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

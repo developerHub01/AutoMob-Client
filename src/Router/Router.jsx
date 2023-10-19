@@ -8,6 +8,9 @@ import AddProduct from "../Pages/AddProduct";
 import ErrorPage from "../Pages/ErrorPage";
 import LoginPage from "../Pages/LoginPage";
 import SignUpPage from "../Pages/SignUpPage";
+import BrandPage from "../Pages/BrandPage";
+import ProductDetails from "../Pages/ProductDetails";
+import ProductUpdate from "../Pages/ProductUpdate";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +37,18 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUpPage />,
+      },
+      {
+        path: "/category/:id",
+        element: <BrandPage />,
+      },
+      {
+        path: "/product/details/:id",
+        element: <ProductDetails />,
+      },
+      {
+        path: "/product/update/:id",
+        element: <ProductUpdate />,
       },
     ],
   },

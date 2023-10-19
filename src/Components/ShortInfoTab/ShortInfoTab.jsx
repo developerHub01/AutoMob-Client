@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const tabContent = [
   {
-    id: 1,
+    id: "toyota",
     imgLink: "https://i.ibb.co/ngNfTrn/toyotaBg.jpg",
     title: "Toyota",
     description:
@@ -13,7 +13,7 @@ const tabContent = [
     categoryLink: "/",
   },
   {
-    id: 2,
+    id: "mercedes",
     imgLink: "https://i.ibb.co/vjktwpy/mercedes-Bg.jpg",
     title: "Mercedes",
     description:
@@ -21,7 +21,7 @@ const tabContent = [
     categoryLink: "/",
   },
   {
-    id: 3,
+    id: "tesla",
     imgLink: "https://i.ibb.co/DkL2sLc/teslaBg.jpg",
     title: "Tesla",
     description:
@@ -29,7 +29,7 @@ const tabContent = [
     categoryLink: "/",
   },
   {
-    id: 4,
+    id: "bmw",
     imgLink: "https://i.ibb.co/GVCTcqh/bmwBg.jpg",
     title: "BMW",
     description:
@@ -37,7 +37,7 @@ const tabContent = [
     categoryLink: "/",
   },
   {
-    id: 5,
+    id: "honda",
     imgLink: "https://i.ibb.co/x3KTcW9/hondaBg.jpg",
     title: "Honda",
     description:
@@ -45,7 +45,7 @@ const tabContent = [
     categoryLink: "/",
   },
   {
-    id: 6,
+    id: "ford",
     imgLink: "https://i.ibb.co/gW3L3C1/fordBg.jpg",
     title: "Ford",
     description:
@@ -114,7 +114,7 @@ const ShortInfoTab = () => {
         >
           <h3 className="heading1">{title}</h3>
           <p className="leading-relaxed text-gray-600">{description}</p>
-          <Link to={categoryLink}>
+          <Link to={`/category/${tabContent[currentIndex].id}`}>
             <button className="button2">View Details</button>
           </Link>
         </div>

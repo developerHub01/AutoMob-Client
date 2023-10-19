@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Brand = ({ id, bgLink, brandName, brandLogo }) => {
   return (
-    <Link to="/">
+    <Link to={`/category/${id}`}>
       <figure className="w-full h-80 relative cursor-pointer group overflow-hidden select-none shadow-sm">
         <img
           src={bgLink}

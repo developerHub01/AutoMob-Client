@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const BannerSlide = ({ id, title, description, bgLink, redirectPath }) => {
+const BannerSlide = ({ id, title, description, bgLink }) => {
+  console.log(id, title, description, bgLink);
+
   return (
     <div
       className="bannerSlide"
@@ -17,7 +19,7 @@ const BannerSlide = ({ id, title, description, bgLink, redirectPath }) => {
           {title}
         </h1>
         <p className="text-base">{description}</p>
-        <Link to={redirectPath}>
+        <Link to={`/category/${id}`}>
           <button className="button1">View Collection</button>
         </Link>
       </div>

@@ -19,7 +19,7 @@ const Header = () => {
   };
 
   return (
-    <div className="bg-white fixed top-0 z-10 w-full flex justify-center items-center shadow-2xl">
+    <div className="bg-white fixed top-0 z-30 w-full flex justify-center items-center shadow-2xl">
       <div className="container py-2 min-h-[80px] flex flex-row justify-between items-center">
         <div className="text-gray-900 font-bold text-lg sm:text-2xl md:text-4xl flex justify-center items-center gap-2">
           <HiBars3BottomLeft

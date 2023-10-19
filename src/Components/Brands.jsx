@@ -3,37 +3,37 @@ import Brand from "./Banner/Brand";
 
 const brandList = [
   {
-    id: 1,
+    id: "toyota",
     bgLink: "https://i.ibb.co/ngNfTrn/toyotaBg.jpg",
     brandName: "Toyota",
     brandLogo: "https://i.ibb.co/gSkwTQV/toyota.jpg",
   },
   {
-    id: 2,
+    id: "ford",
     bgLink: "https://i.ibb.co/gW3L3C1/fordBg.jpg",
     brandName: "Ford",
     brandLogo: "https://i.ibb.co/ZKJ74NC/ford.jpg",
   },
   {
-    id: 3,
+    id: "bmw",
     bgLink: "https://i.ibb.co/GVCTcqh/bmwBg.jpg",
     brandName: "BMW",
     brandLogo: "https://i.ibb.co/dGS327s/bmw.jpg",
   },
   {
-    id: 4,
+    id: "mercedes",
     bgLink: "https://i.ibb.co/vjktwpy/mercedes-Bg.jpg",
     brandName: "Mercedes-Benz",
     brandLogo: "https://i.ibb.co/k8xBFc9/mercedes.jpg",
   },
   {
-    id: 5,
+    id: "tesla",
     bgLink: "https://i.ibb.co/DkL2sLc/teslaBg.jpg",
     brandName: "Tesla",
     brandLogo: "https://i.ibb.co/QX3VRPg/tesla.jpg",
   },
   {
-    id: 6,
+    id: "honda",
     bgLink: "https://i.ibb.co/x3KTcW9/hondaBg.jpg",
     brandName: "Honda",
     brandLogo: "https://i.ibb.co/ft5f1Bd/honda.jpg",
