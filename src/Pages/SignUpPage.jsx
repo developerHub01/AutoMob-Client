@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { BsGoogle } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/AuthProvider";
+import { toast } from "react-toastify";
+import auth from "../firebase/firebase.config";
+import { updateProfile } from "firebase/auth";
 
 const SignUpPage = () => {
+  const navigate = useNavigate();
   const [signUpData, setSignUpData] = useState({
+    displayName: "",
     email: "",
     password: "",
-    photoUrl: "",
+    photoURL: "",
   });
+
+  const { googleSignIn, setUser, singUpUser } = useContext(AuthContext);
 
   const handleInputChange = (e) => {
     setSignUpData((prev) => ({
@@ -19,6 +27,40 @@ const SignUpPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(signUpData);
+    const { displayName, photoURL, email, password } = signUpData;
+    console.log(signUpData);
+    singUpUser(email, password)
+      .then((userCredential) => {
+        updateProfile(auth.currentUser, {
+          displayName,
+          photoURL,
+        })
+          .then(() => {
+            toast("Signup successful");
+            setUser((prev) => signUpData);
+            navigate("/");
+          })
+          .catch((error) => {
+            toast(error.message);
+          });
+      })
+      .catch((error) => {
+        toast(error.message);
+      });
+  };
+
+  const handleSignInGoogle = () => {
+    googleSignIn()
+      .then((result) => {
+        console.log(result.user);
+        setUser((prev) => result.user);
+        toast("Signup successfully");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+        toast(error.message);
+      });
   };
 
   return (
@@ -38,10 +80,18 @@ const SignUpPage = () => {
           <form className="w-full flex flex-col gap-4" onSubmit={handleSubmit}>
             <input
               type="text"
-              name="photoUrl"
+              name="displayName"
+              placeholder="Full name"
+              className="inputField"
+              value={signUpData.displayName}
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              name="photoURL"
               placeholder="PhotoURL"
               className="inputField"
-              value={signUpData.photoUrl}
+              value={signUpData.photoURL}
               onChange={handleInputChange}
             />
             <input
@@ -72,7 +122,7 @@ const SignUpPage = () => {
               Login
             </Link>
           </p>
-          <button className="button2 w-full">
+          <button className="button2 w-full" onClick={handleSignInGoogle}>
             <BsGoogle /> Signup With Google
           </button>
         </div>

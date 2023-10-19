@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const BannerSlide = ({ id, title, description, bgLink }) => {
-  console.log(id, title, description, bgLink);
-
   return (
     <div
       className="bannerSlide"

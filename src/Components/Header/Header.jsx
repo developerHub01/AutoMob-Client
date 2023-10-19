@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HiBars3BottomLeft, HiMiniXMark } from "react-icons/hi2";
 
 import "./Header.css";
 import Logo from "../Logo";
+import { AuthContext } from "../../Context/AuthProvider";
+import { toast } from "react-toastify";
+import { LoadingContext } from "../../Context/LoadingProvider";
 
 const Header = () => {
   const [sideBarState, setSideBarState] = useState(false);
+
+  const { user, setUser, logOut } = useContext(AuthContext);
+  const { isLoading, setIsLoading } = useContext(LoadingContext);
 
   const profileImg =
     "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=1528&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
@@ -16,6 +22,14 @@ const Header = () => {
   };
   const handleShowSideBar = () => {
     setSideBarState((prev) => true);
+  };
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast("Logout successful");
+        setUser((prev) => null);
+      })
+      .catch((error) => toast(error.message));
   };
 
   return (
@@ -65,22 +79,37 @@ const Header = () => {
           </ul>
         </nav>
         <div>
-          <Link to="/login" className="button2">
-            Login
-          </Link>
-          {/* <div className="flex justify-center items-center gap-2">
-            <figure className="relative w-9 h-9 aspect-square cursor-pointer group">
-              <img
-                src={profileImg}
-                alt=""
-                className="w-full h-full object-cover rounded-full"
-              />
-              <figcaption className="hidden group-hover:block absolute bg-gray-900 text-white p-1 rounded-md text-sm left-1/2 -translate-x-1/2 -bottom-1 translate-y-full">
-                shakil102043@gmail.com
-              </figcaption>
-            </figure>
-            <button className="button2">Logout</button>
-          </div> */}
+          {user ? (
+            <div className="flex justify-center items-center gap-2">
+              <div className="relative">
+                <figure
+                  className="w-9 h-9 aspect-square cursor-pointer group overflow-hidden rounded-full"
+                  style={{
+                    background: `url('${profileImg}')`,
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                >
+                  <img
+                    src={user.photoURL}
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
+                  <figcaption className="hidden group-hover:block absolute bg-gray-900 text-white p-1 rounded-md text-sm left-1/2 -translate-x-1/2 -bottom-1 translate-y-full">
+                    {user.email}
+                  </figcaption>
+                </figure>
+              </div>
+              <button className="button2" onClick={handleLogOut}>
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link to="/login" className="button2">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>

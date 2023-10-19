@@ -1,14 +1,18 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Logo from "../Components/Logo";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import { BsGoogle } from "react-icons/bs";
+import { AuthContext } from "../Context/AuthProvider";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
-  });
+  }); 
+
+  const { googleSignIn, setUser, signInUser } = useContext(AuthContext);
 
   const handleInputChange = (e) => {
     setLoginData((prev) => ({
@@ -17,9 +21,33 @@ const LoginPage = () => {
     }));
   };
 
+  const handleSignInGoogle = () => {
+    googleSignIn()
+      .then((result) => {
+        console.log(result.user);
+        setUser((prev) => result.user);
+        toast("Login successful");
+
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+        toast(error.message);
+      });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(loginData);
+    signInUser(loginData.email, loginData.password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        toast("Login successful");
+        navigate("/");
+      })
+      .catch((error) => {
+        toast(error.message);
+      });
   };
 
   return (
@@ -66,7 +94,7 @@ const LoginPage = () => {
               Create Account
             </Link>
           </p>
-          <button className="button2 w-full">
+          <button className="button2 w-full" onClick={handleSignInGoogle}>
             <BsGoogle /> Login With Google
           </button>
         </div>

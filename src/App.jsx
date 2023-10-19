@@ -2,6 +2,8 @@ import { Outlet } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import SocialBar from "./Components/SocialBar";
 import Footer from "./Components/Footer/Footer";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
       </div>
       <SocialBar />
       <Footer />
+      <ToastContainer />
     </>
   );
 }

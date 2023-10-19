@@ -19,12 +19,12 @@ const Footer = () => {
       }}
     >
       <div className="container min-h-[80vh] relative z-30 grid grid-cols-4 gap-10 items-start">
-        <div className="w-full col-span-4 sm:col-span-2 flex flex-col gap-5">
+        <div className="w-full col-span-4 sm:col-span-2 flex flex-col justify-center items-start gap-5">
           <Link
             to="/"
-            className="text-white text-xl sm:text-3xl font-bold select-none"
+            className="inline-block text-white text-xl sm:text-3xl font-bold select-none md:text-4xl border-b-4 border-white border-l-4 p-2"
           >
-            AutoMov
+            AutoMob
           </Link>
           <div className="w-full flex flex-col gap-3">
             <p>
