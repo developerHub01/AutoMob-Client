@@ -1,8 +1,12 @@
-# React + Vite
+# Live Link: https://automob-786c8.web.app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Server Side: https://github.com/programming-hero-web-course-4/b8a10-brandshop-server-side-developerHub01
 
-Currently, two official plugins are available:
+## Featurs ->
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Authentication system
+- Authenticate with Google
+- Add Product System
+- Add To Cart System
+- Update Product System
+- Private route that client can't access them without login account
