@@ -4,8 +4,9 @@ import SocialBar from "./Components/SocialBar";
 import Footer from "./Components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import LoaderCompo from "./Components/LoaderCompo";
 
-function App() {
+const App = () => {
   return (
     <>
       <Header />
@@ -14,9 +15,10 @@ function App() {
       </div>
       <SocialBar />
       <Footer />
+      <LoaderCompo />
       <ToastContainer />
     </>
   );
-}
+};
 
 export default App;

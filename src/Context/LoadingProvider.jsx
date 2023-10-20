@@ -10,6 +10,12 @@ const LoadingProvider = ({ children }) => {
     setIsLoading,
   };
 
+  if (isLoading) {
+    document.body.style.overflowY = "hidden";
+  } else {
+    document.body.style.overflowY = "auto";
+  }
+
   return (
     <LoadingContext.Provider value={loadingState}>
       {children}

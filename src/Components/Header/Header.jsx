@@ -56,14 +56,17 @@ const Header = () => {
           </div>
           <ul className="navBar flex flex-col gap-8 md:flex-row justify-center items-center md:gap-0 select-none">
             <li>
-              <NavLink to="/" className="text-gray-600 py-3 px-5 text-center">
+              <NavLink
+                to="/"
+                className="text-gray-600 py-3 px-5 text-center text-sm md:text-base"
+              >
                 Home
               </NavLink>
             </li>
             <li>
               <NavLink
                 to="/addproduct"
-                className="text-gray-600 py-3 px-5 text-center"
+                className="text-gray-600 py-3 px-5 text-center text-sm md:text-base"
               >
                 Add Product
               </NavLink>
@@ -71,7 +74,7 @@ const Header = () => {
             <li>
               <NavLink
                 to="/mycart"
-                className="text-gray-600 py-3 px-5 text-center flex-shrink-0"
+                className="text-gray-600 py-3 px-5 text-center text-sm md:text-base"
               >
                 My Cart
               </NavLink>

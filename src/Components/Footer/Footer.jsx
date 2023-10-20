@@ -22,7 +22,7 @@ const Footer = () => {
         <div className="w-full col-span-4 sm:col-span-2 flex flex-col justify-center items-start gap-5">
           <Link
             to="/"
-            className="inline-block text-white text-xl sm:text-3xl font-bold select-none md:text-4xl border-b-4 border-white border-l-4 p-2"
+            className="inline-block text-white font-bold select-none text-lg sm:text-xl md:text-2xl border-b-4 border-white border-l-4 p-2"
           >
             AutoMob
           </Link>
@@ -67,7 +67,7 @@ const Footer = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/myevent" className="transition-all delay-75">
+              <NavLink to="/mycart" className="transition-all delay-75">
                 My Cart List
               </NavLink>
             </li>
