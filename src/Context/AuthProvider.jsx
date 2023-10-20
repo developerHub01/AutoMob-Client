@@ -17,6 +17,7 @@ const AuthProvider = ({ children }) => {
 
   const { isLoading, setIsLoading } = useContext(LoadingContext);
 
+
   const googleProvider = new GoogleAuthProvider();
 
   const googleSignIn = () => {
