@@ -31,7 +31,7 @@ const AddProduct = () => {
   const [productCategory, setProductCategory] = useState("toyota");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/product/${id}`)
+    fetch(`https://automob-5azoln3v6-developerhub01.vercel.app/product/${id}`)
       .then((res) => res.json())
       .then((data) => {
         const {
@@ -83,7 +83,7 @@ const AddProduct = () => {
 
     // console.log(productData, productCategory["value"]);
 
-    fetch(`http://localhost:5000/product/${id}`, {
+    fetch(`https://automob-5azoln3v6-developerhub01.vercel.app/product/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

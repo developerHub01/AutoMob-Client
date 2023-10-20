@@ -22,10 +22,10 @@
     @apply w-full min-h-[60vh] mx-auto py-20 flex flex-col justify-center items-center gap-8;
   }
   .button1 {
-    @apply select-none capitalize py-3 px-6 border-2 flex justify-center items-center gap-2 border-white text-white hover:text-gray-900 transition-all duration-75 relative before:content-[''] before:absolute before:top-0 before:left-0 before:h-full before:w-full before:bg-white before:-z-10 before:scale-x-0 hover:before:scale-x-105 before:duration-100 before:origin-left overflow-hidden text-base;
+    @apply select-none capitalize py-3 px-6 border-2 flex justify-center items-center gap-2 border-white text-white hover:text-gray-900 transition-all duration-75 relative before:content-[''] before:absolute before:top-0 before:left-0 before:h-full before:w-full before:bg-white before:-z-10 before:scale-x-0 hover:before:scale-x-105 before:duration-100 before:origin-left overflow-hidden text-sm sm:text-base;
   }
   .button2 {
-    @apply select-none capitalize py-3 px-6 border-2 flex justify-center items-center gap-2 border-gray-900 text-gray-900 hover:text-white transition-all duration-75 relative before:content-[''] before:absolute before:top-0 before:left-0 before:h-full before:w-full before:bg-gray-900 before:-z-10 before:scale-x-0 hover:before:scale-x-105 before:duration-100 before:origin-left overflow-hidden text-base;
+    @apply select-none capitalize py-3 px-6 border-2 flex justify-center items-center gap-2 border-gray-900 text-gray-900 hover:text-white transition-all duration-75 relative before:content-[''] before:absolute before:top-0 before:left-0 before:h-full before:w-full before:bg-gray-900 before:-z-10 before:scale-x-0 hover:before:scale-x-105 before:duration-100 before:origin-left overflow-hidden  text-sm sm:text-base;
   }
   .bannerSlide {
     @apply w-full px-3 py-5 min-h-[90vh] grid place-items-center relative before:content-[''] before:absolute before:w-full before:h-full before:top-0 before:left-0 before:bg-gray-900/70 before:mix-blend-multiply;
@@ -40,9 +40,3 @@ body {
   background: white;
   overflow-x: hidden;
 }
-/* 
-    font-family: 'Bebas Neue', sans-serif;
-
-    font-family: 'Poppins', sans-serif;
-
-*/

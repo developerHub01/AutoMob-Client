@@ -16,8 +16,6 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const { isLoading, setIsLoading } = useContext(LoadingContext);
-  // const data = useContext(LoadingContext);
-  // console.log(data);
 
   const googleProvider = new GoogleAuthProvider();
 

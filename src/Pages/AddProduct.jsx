@@ -51,9 +51,7 @@ const AddProduct = () => {
       });
     }
 
-    // console.log(productData, productCategory["value"]);
-
-    fetch("http://localhost:5000/addproduct", {
+    fetch("https://automob-5azoln3v6-developerhub01.vercel.app/addproduct", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

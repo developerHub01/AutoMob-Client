@@ -3,5 +3,6 @@
 }
 .navBar a.active,
 .navBar a:hover {
-  color: #030712;
+  color: #111827;
+  border-color: #111827;  
 }

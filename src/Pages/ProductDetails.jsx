@@ -4,6 +4,8 @@ import Rating from "../Components/Rating";
 import { LoadingContext } from "../Context/LoadingProvider";
 import { BsFillCartFill } from "react-icons/bs";
 
+import Swal from 'sweetalert2'
+
 const ProductDetails = () => {
   const { id } = useParams();
   const [productData, setProductData] = useState({});
@@ -21,7 +23,7 @@ const ProductDetails = () => {
   } = productData;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/product/${id}`)
+    fetch(`https://automob-5azoln3v6-developerhub01.vercel.app/product/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -32,7 +34,7 @@ const ProductDetails = () => {
   }, [isLoading]);
 
   const handleAdToCart = () => {
-    fetch(`http://localhost:5000/cartlist`, {
+    fetch(`https://automob-5azoln3v6-developerhub01.vercel.app/cartlist`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +49,7 @@ const ProductDetails = () => {
           Swal.fire({
             icon: "success",
             title: "Done",
-            text: "Aded To Cart Successfully!",
+            text: "Added To Cart Successfully!",
           });
         } else {
           Swal.fire({

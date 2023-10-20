@@ -6,7 +6,7 @@ const MyCartCard = ({ cartProductId }) => {
   const [productData, setProductData] = useState({});
   const { isLoading, setIsLoading } = useContext(LoadingContext);
   useEffect(() => {
-    fetch(`http://localhost:5000/product/${cartProductId}`)
+    fetch(`https://automob-5azoln3v6-developerhub01.vercel.app/product/${cartProductId}`)
       .then((res) => res.json())
       .then((data) => {
         setProductData((prev) => data);

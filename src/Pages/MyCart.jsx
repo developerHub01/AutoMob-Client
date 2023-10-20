@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import BrandProduct from "../Components/BrandProduct";
-import { AuthContext } from "../Context/AuthProvider";
 import { LoadingContext } from "../Context/LoadingProvider";
 import MyCartCard from "./MyCartCard";
 
@@ -9,7 +7,7 @@ const MyCart = () => {
   const { isLoading, setIsLoading } = useContext(LoadingContext);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/cartlist`)
+    fetch(`https://automob-5azoln3v6-developerhub01.vercel.app/cartlist`)
       .then((res) => res.json())
       .then((data) => {
         setCartList((prev) => data);

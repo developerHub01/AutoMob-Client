@@ -10,7 +10,9 @@ const BrandPage = () => {
   const [brandDataList, setBrandDataList] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/brandDataList/${id}`)
+    fetch(
+      `https://automob-5azoln3v6-developerhub01.vercel.app/brandDataList/${id}`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -28,10 +30,20 @@ const BrandPage = () => {
     <div>
       {!isLoading && brandDataList && (
         <>
-          <BrandPageAd
-            brandDataList={shuffleArray(brandDataList).slice(0, 3)}
-          />
-          <BrandProducts brandDataList={brandDataList} />
+          {brandDataList.length ? (
+            <>
+              <BrandPageAd
+                brandDataList={shuffleArray(brandDataList).slice(0, 3)}
+              />
+              <BrandProducts brandDataList={brandDataList} />
+            </>
+          ) : (
+            <div className="min-h-[50vh] flex justify-center items-center">
+              <h2 className="capitalize text-white text-3xl font-bold bg-gray-900 center p-4 shadow-2xl select-none">
+                No available products
+              </h2>
+            </div>
+          )}
         </>
       )}
     </div>

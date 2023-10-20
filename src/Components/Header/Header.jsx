@@ -12,7 +12,6 @@ const Header = () => {
   const [sideBarState, setSideBarState] = useState(false);
 
   const { user, setUser, logOut } = useContext(AuthContext);
-  const { isLoading, setIsLoading } = useContext(LoadingContext);
 
   const profileImg =
     "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=1528&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
@@ -37,7 +36,7 @@ const Header = () => {
       <div className="container py-2 min-h-[80px] flex flex-row justify-between items-center">
         <div className="text-gray-900 font-bold text-lg sm:text-2xl md:text-4xl flex justify-center items-center gap-2">
           <HiBars3BottomLeft
-            className="cursor-pointer text-4xl block md:hidden"
+            className="cursor-pointer text-2xl sm:text-4xl block md:hidden"
             onClick={handleShowSideBar}
           />
           <Logo />
@@ -58,7 +57,7 @@ const Header = () => {
             <li>
               <NavLink
                 to="/"
-                className="text-gray-600 py-3 px-5 text-center text-sm md:text-base"
+                className="text-gray-600 py-2 px-5 text-center text-sm md:text-base border-x-0 border-y-2 border-transparent w-full"
               >
                 Home
               </NavLink>
@@ -66,7 +65,7 @@ const Header = () => {
             <li>
               <NavLink
                 to="/addproduct"
-                className="text-gray-600 py-3 px-5 text-center text-sm md:text-base"
+                className="text-gray-600 py-2 px-5 text-center text-sm md:text-base border-x-0 border-y-2 border-transparent w-full"
               >
                 Add Product
               </NavLink>
@@ -74,7 +73,7 @@ const Header = () => {
             <li>
               <NavLink
                 to="/mycart"
-                className="text-gray-600 py-3 px-5 text-center text-sm md:text-base"
+                className="text-gray-600 py-2 px-5 text-center text-sm md:text-base border-x-0 border-y-2 border-transparent w-full"
               >
                 My Cart
               </NavLink>
