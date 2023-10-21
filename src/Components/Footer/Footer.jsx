@@ -30,14 +30,14 @@ const Footer = () => {
             <p>
               AutoMob Premier is your destination for exceptional automobiles.
               Explore our handpicked collection, embark on thrilling test
-              drives, and experience excellence on the road. Your automotive
+              drives, and experience excellence on the road. Your automob
               journey begins here.
             </p>
             <p>
-              Stay updated on the latest arrivals, automotive news, and
-              exclusive offers by following us on social media. Be part of our
-              passionate community of car enthusiasts. Your journey with
-              AutoVista Premier continues online.
+              Stay updated on the latest arrivals, automob news, and exclusive
+              offers by following us on social media. Be part of our passionate
+              community of car enthusiasts. Your journey with AutoMob Premier
+              continues online.
             </p>
           </div>
         </div>
