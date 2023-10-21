@@ -1,20 +1,25 @@
 import React, { useContext, useEffect, useState } from "react";
 import { LoadingContext } from "../Context/LoadingProvider";
 import MyCartCard from "./MyCartCard";
+import { AuthContext } from "../Context/AuthProvider";
 
 const MyCart = () => {
+  const { user } = useContext(AuthContext);
   const [cartList, setCartList] = useState([]);
   const { isLoading, setIsLoading } = useContext(LoadingContext);
 
   useEffect(() => {
-    fetch(`https://automob-5azoln3v6-developerhub01.vercel.app/cartlist`)
+    fetch(`http://localhost:5000/cartlist/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setCartList((prev) => data);
         setIsLoading((prev) => false);
       })
-      .catch((error) => console.log(error));
-  }, [isLoading]);
+      .catch((error) => {
+        console.log(error);
+        setIsLoading((prev) => false);
+      });
+  }, [isLoading, user]);
 
   return (
     <div className="container">

@@ -10,16 +10,17 @@ const BrandPage = () => {
   const [brandDataList, setBrandDataList] = useState([]);
 
   useEffect(() => {
-    fetch(
-      `https://automob-5azoln3v6-developerhub01.vercel.app/brandDataList/${id}`
-    )
+    fetch(`http://localhost:5000/brandDataList/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         setBrandDataList((prev) => data);
         setIsLoading((prev) => false);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        setIsLoading((prev) => false);
+      });
   }, [isLoading]);
 
   const shuffleArray = (arr) => {
@@ -39,7 +40,7 @@ const BrandPage = () => {
             </>
           ) : (
             <div className="min-h-[50vh] flex justify-center items-center">
-              <h2 className="capitalize text-white text-3xl font-bold bg-gray-900 center p-4 shadow-2xl select-none">
+              <h2 className="capitalize text-white dark:text-gray-900 text-3xl font-bold bg-gray-900 dark:bg-white center p-4 shadow-2xl select-none">
                 No available products
               </h2>
             </div>

@@ -2,17 +2,7 @@ import React, { useState } from "react";
 
 import Swal from "sweetalert2";
 import Select from "react-select";
-
-const categorySelectOption = [
-  { value: "toyota", label: "Toyota" },
-  { value: "ford", label: "Ford" },
-  { value: "bmw", label: "BMW" },
-  { value: "mercedes", label: "Mercedes-Benz" },
-  { value: "tesla", label: "Tesla" },
-  { value: "honda", label: "Honda" },
-];
-
-const brandList = ["toyota", "ford", "bmw", "mercedes", "tesla", "honda"];
+import { brandList, categorySelectOption } from "../Constants/data";
 
 const AddProduct = () => {
   const [productData, setProductData] = useState({
@@ -46,12 +36,18 @@ const AddProduct = () => {
       return Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "Something went wrong!",
-        footer: '<a href="">Why do I have this issue?</a>',
+        text: `Brand name should be one of ${brandList}!`,
+      });
+    }
+    if (rating > 5) {
+      return Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `Rating should be between 0-5`,
       });
     }
 
-    fetch("https://automob-5azoln3v6-developerhub01.vercel.app/addproduct", {
+    fetch("http://localhost:5000/addproduct", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -77,7 +73,6 @@ const AddProduct = () => {
             icon: "error",
             title: "Oops...",
             text: "Something went wrong!",
-            footer: '<a href="">Why do I have this issue?</a>',
           });
         }
       })

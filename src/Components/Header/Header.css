@@ -1,8 +1,8 @@
 .navBar {
   transition: all 0.3s ease-in-out;
 }
-.navBar a.active,
+/* .navBar a.active,
 .navBar a:hover {
   color: #111827;
   border-color: #111827;  
-}
+} */

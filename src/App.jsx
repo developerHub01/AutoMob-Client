@@ -5,6 +5,7 @@ import Footer from "./Components/Footer/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LoaderCompo from "./Components/LoaderCompo";
+import DarkModeSwitch from "./Components/DarkModeSwitch";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <SocialBar />
       <Footer />
       <LoaderCompo />
+      <DarkModeSwitch />
       <ToastContainer />
     </>
   );

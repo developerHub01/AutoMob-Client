@@ -1,51 +1,14 @@
 import React from "react";
 import Brand from "./Banner/Brand";
 
-const brandList = [
-  {
-    id: "toyota",
-    bgLink: "https://i.ibb.co/ngNfTrn/toyotaBg.jpg",
-    brandName: "Toyota",
-    brandLogo: "https://i.ibb.co/gSkwTQV/toyota.jpg",
-  },
-  {
-    id: "ford",
-    bgLink: "https://i.ibb.co/gW3L3C1/fordBg.jpg",
-    brandName: "Ford",
-    brandLogo: "https://i.ibb.co/ZKJ74NC/ford.jpg",
-  },
-  {
-    id: "bmw",
-    bgLink: "https://i.ibb.co/GVCTcqh/bmwBg.jpg",
-    brandName: "BMW",
-    brandLogo: "https://i.ibb.co/dGS327s/bmw.jpg",
-  },
-  {
-    id: "mercedes",
-    bgLink: "https://i.ibb.co/vjktwpy/mercedes-Bg.jpg",
-    brandName: "Mercedes-Benz",
-    brandLogo: "https://i.ibb.co/k8xBFc9/mercedes.jpg",
-  },
-  {
-    id: "tesla",
-    bgLink: "https://i.ibb.co/DkL2sLc/teslaBg.jpg",
-    brandName: "Tesla",
-    brandLogo: "https://i.ibb.co/QX3VRPg/tesla.jpg",
-  },
-  {
-    id: "honda",
-    bgLink: "https://i.ibb.co/x3KTcW9/hondaBg.jpg",
-    brandName: "Honda",
-    brandLogo: "https://i.ibb.co/ft5f1Bd/honda.jpg",
-  },
-];
+import { brandDataList } from "../Constants/data";
 
 const Brands = () => {
   return (
     <div className="container">
       <h2 className="heading1 animate__fadeInUp">Our Brands Are</h2>
       <div className="w-full grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {brandList.map((brand) => (
+        {brandDataList.map((brand) => (
           <Brand key={brand.id} {...brand} />
         ))}
       </div>

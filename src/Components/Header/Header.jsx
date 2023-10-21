@@ -6,12 +6,11 @@ import "./Header.css";
 import Logo from "../Logo";
 import { AuthContext } from "../../Context/AuthProvider";
 import { toast } from "react-toastify";
-import { LoadingContext } from "../../Context/LoadingProvider";
 
 const Header = () => {
   const [sideBarState, setSideBarState] = useState(false);
 
-  const { user, setUser, logOut } = useContext(AuthContext);
+  const { user, authLoading, setUser, logOut } = useContext(AuthContext);
 
   const profileImg =
     "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=1528&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
@@ -32,22 +31,22 @@ const Header = () => {
   };
 
   return (
-    <div className="bg-white fixed top-0 z-30 w-full flex justify-center items-center shadow-2xl">
+    <div className="bg-white dark:bg-gray-900 fixed top-0 z-30 w-full flex justify-center items-center shadow-sm dark:shadow-2xl">
       <div className="container py-2 min-h-[80px] flex flex-row justify-between items-center">
-        <div className="text-gray-900 font-bold text-lg sm:text-2xl md:text-4xl flex justify-center items-center gap-2">
+        <div className="text-gray-900 dark:text-white font-bold text-lg sm:text-2xl md:text-4xl flex justify-center items-center gap-2">
           <HiBars3BottomLeft
-            className="cursor-pointer text-2xl sm:text-4xl block md:hidden"
+            className="cursor-pointer text-3xl sm:text-4xl block md:hidden"
             onClick={handleShowSideBar}
           />
           <Logo />
         </div>
         <nav
-          className={`fixed w-52 bg-white flex flex-col justify-center items-center gap-y-5 h-screen top-0 left-0 z-20 shadow-2xl md:shadow-none md:static md:w-auto md:bg-auto md:h-auto ${
+          className={`fixed w-52 bg-white dark:bg-gray-900 flex flex-col justify-center items-center gap-y-5 h-screen top-0 left-0 z-20 shadow-2xl md:shadow-none md:static md:w-auto md:bg-auto md:h-auto ${
             sideBarState ? "translate-x-0" : "-translate-x-full"
           } md:translate-x-0 transition-all duration-75 ease-in-out`}
         >
           <HiMiniXMark
-            className="absolute inline-block md:static md:hidden top-5 right-5 text-gray-900 text-4xl cursor-pointer"
+            className="absolute inline-block md:static md:hidden top-5 right-5 text-gray-900 dark:text-white text-4xl cursor-pointer"
             onClick={handleHideSideBar}
           />
           <div className="block md:hidden pb-4">
@@ -57,7 +56,7 @@ const Header = () => {
             <li>
               <NavLink
                 to="/"
-                className="text-gray-600 py-2 px-5 text-center text-sm md:text-base border-x-0 border-y-2 border-transparent w-full"
+                className="text-gray-600 hover:text-gray-900 dark:hover:text-white py-2 px-5 text-center text-sm md:text-base border-x-0 border-y-2 border-transparent hover:border-gray-900 dark:hover:border-white w-full"
               >
                 Home
               </NavLink>
@@ -65,7 +64,7 @@ const Header = () => {
             <li>
               <NavLink
                 to="/addproduct"
-                className="text-gray-600 py-2 px-5 text-center text-sm md:text-base border-x-0 border-y-2 border-transparent w-full"
+                className="text-gray-600 hover:text-gray-900 dark:hover:text-white py-2 px-5 text-center text-sm md:text-base border-x-0 border-y-2 border-transparent hover:border-gray-900 dark:hover:border-white w-full"
               >
                 Add Product
               </NavLink>
@@ -73,7 +72,7 @@ const Header = () => {
             <li>
               <NavLink
                 to="/mycart"
-                className="text-gray-600 py-2 px-5 text-center text-sm md:text-base border-x-0 border-y-2 border-transparent w-full"
+                className="text-gray-600 hover:text-gray-900 dark:hover:text-white py-2 px-5 text-center text-sm md:text-base border-x-0 border-y-2 border-transparent hover:border-gray-900 dark:hover:border-white w-full"
               >
                 My Cart
               </NavLink>
@@ -81,7 +80,7 @@ const Header = () => {
           </ul>
         </nav>
         <div>
-          {user ? (
+          {!authLoading && user ? (
             <div className="flex justify-center items-center gap-2">
               <div className="relative">
                 <figure
@@ -98,7 +97,7 @@ const Header = () => {
                     alt=""
                     className="w-full h-full object-cover"
                   />
-                  <figcaption className="hidden group-hover:block absolute bg-gray-900 text-white p-1 rounded-md text-sm left-1/2 -translate-x-1/2 -bottom-1 translate-y-full">
+                  <figcaption className="hidden group-hover:block absolute bg-gray-900 dark:bg-white text-white dark:text-gray-900 p-1 rounded-md text-sm left-1/2 -translate-x-1/2 -bottom-1 translate-y-full">
                     {user.email}
                   </figcaption>
                 </figure>

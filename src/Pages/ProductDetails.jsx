@@ -4,9 +4,12 @@ import Rating from "../Components/Rating";
 import { LoadingContext } from "../Context/LoadingProvider";
 import { BsFillCartFill } from "react-icons/bs";
 
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
+import { AuthContext } from "../Context/AuthProvider";
 
 const ProductDetails = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
   const { id } = useParams();
   const [productData, setProductData] = useState({});
   const { isLoading, setIsLoading } = useContext(LoadingContext);
@@ -23,24 +26,28 @@ const ProductDetails = () => {
   } = productData;
 
   useEffect(() => {
-    fetch(`https://automob-5azoln3v6-developerhub01.vercel.app/product/${id}`)
+    fetch(`http://localhost:5000/product/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         setProductData((prev) => data);
         setIsLoading((prev) => false);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        setIsLoading((prev) => false);
+      });
   }, [isLoading]);
 
   const handleAdToCart = () => {
-    fetch(`https://automob-5azoln3v6-developerhub01.vercel.app/cartlist`, {
+    fetch(`http://localhost:5000/cartlist`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         cartProductId: _id,
+        email: user.email,
       }),
     })
       .then((res) => res.json())
@@ -78,18 +85,22 @@ const ProductDetails = () => {
         />
       </figure>
       <figcaption className="flex flex-col justify-center items-start gap-3">
-        <h3 className="capitalize text-4xl font-semibold text-gray-900">
+        <h3 className="capitalize text-4xl font-semibold text-gray-900 dark:text-white">
           {name}
-          <span className="ml-2 text-base text-gray-600">({brandName})</span>
+          <span className="ml-2 text-base text-gray-600 dark:text-gray-200">
+            ({brandName})
+          </span>
         </h3>
-        <p className="text-gray-700 font-medium text-xl">${price}</p>
+        <p className="text-gray-700 dark:text-gray-200 font-medium text-xl">
+          ${price}
+        </p>
         <Rating rating={rating} />
-        <Link to={`http://localhost:5173/category/${productCategory}`}>
-          <p className="capitalize text-base rounded-full py-2 px-4 bg-gray-900 text-white">
+        <Link to={`/category/${productCategory}`}>
+          <p className="capitalize text-base rounded-full py-2 px-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 shadow-lg">
             {productCategory}
           </p>
         </Link>
-        <p className="text-gray-700">{shortDescription}</p>
+        <p className="text-gray-700 dark:text-gray-100">{shortDescription}</p>
         <button className="button2" onClick={handleAdToCart}>
           <BsFillCartFill className="text-2xl" /> Add To Cart
         </button>

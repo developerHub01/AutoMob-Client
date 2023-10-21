@@ -4,17 +4,7 @@ import Swal from "sweetalert2";
 import Select from "react-select";
 import { useParams } from "react-router-dom";
 import { LoadingContext } from "../Context/LoadingProvider";
-
-const categorySelectOption = [
-  { value: "toyota", label: "Toyota" },
-  { value: "ford", label: "Ford" },
-  { value: "bmw", label: "BMW" },
-  { value: "mercedes", label: "Mercedes-Benz" },
-  { value: "tesla", label: "Tesla" },
-  { value: "honda", label: "Honda" },
-];
-
-const brandList = ["toyota", "ford", "bmw", "mercedes", "tesla", "honda"];
+import { brandList, categorySelectOption } from "../Constants/data";
 
 const AddProduct = () => {
   const { id } = useParams();
@@ -31,7 +21,7 @@ const AddProduct = () => {
   const [productCategory, setProductCategory] = useState("toyota");
 
   useEffect(() => {
-    fetch(`https://automob-5azoln3v6-developerhub01.vercel.app/product/${id}`)
+    fetch(`http://localhost:5000/product/${id}`)
       .then((res) => res.json())
       .then((data) => {
         const {
@@ -52,6 +42,9 @@ const AddProduct = () => {
           rating,
         }));
         setProductCategory((prev) => productCategory);
+        setIsLoading((prev) => false);
+      })
+      .catch((error) => {
         setIsLoading((prev) => false);
       });
   }, []);
@@ -76,14 +69,21 @@ const AddProduct = () => {
       return Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "Something went wrong!",
-        footer: '<a href="">Why do I have this issue?</a>',
+        text: `Brand name should be one of ${brandList}!`,
+        customClass: {
+          image: "object-cover",
+        },
+      });
+    }
+    if (rating > 5) {
+      return Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `Rating should be between 0-5`,
       });
     }
 
-    // console.log(productData, productCategory["value"]);
-
-    fetch(`https://automob-5azoln3v6-developerhub01.vercel.app/product/${id}`, {
+    fetch(`http://localhost:5000/product/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

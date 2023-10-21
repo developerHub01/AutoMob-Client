@@ -47,7 +47,7 @@ const BrandPageAd = ({ brandDataList }) => {
               <h2 className="heading1 text-white">{name}</h2>
               <p>{shortDescription.slice(0, 150) + "..."}</p>
               <Link
-                to={`http://localhost:5173/product/details/${_id}`}
+                to={`/product/details/${_id}`}
                 className="button1"
               >
                 View Details

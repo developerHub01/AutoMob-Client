@@ -90,7 +90,6 @@ const LoginPage = () => {
               to="/signup"
               className="text-gray-900 underline font-bold pl-2"
             >
-              {" "}
               Create Account
             </Link>
           </p>

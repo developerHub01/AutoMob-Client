@@ -8,15 +8,13 @@ import {
   signOut,
 } from "firebase/auth";
 import auth from "../firebase/firebase.config";
-import { LoadingContext } from "./LoadingProvider";
 
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
 
-  const { isLoading, setIsLoading } = useContext(LoadingContext);
-
+  const [authLoading, setAuthLoading] = useState(true);
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -35,11 +33,11 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (user) => {
       setUser((prev) => user);
-      setIsLoading((prev) => false);
+      setAuthLoading((prev) => false);
     });
 
     return () => unSubscribe();
-  }, [isLoading]);
+  }, [authLoading]);
 
   const logOut = () => {
     return signOut(auth);
@@ -52,6 +50,7 @@ const AuthProvider = ({ children }) => {
     singUpUser,
     signInUser,
     logOut,
+    authLoading,
   };
   return (
     <AuthContext.Provider value={authData}>{children}</AuthContext.Provider>
