@@ -26,7 +26,7 @@ const MyCart = () => {
     <div className="container">
       <h2 className="heading1 text-center">Cart List</h2>
       {!isLoading && cartList && (
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 grid-rows-1 gap-5">z
           {cartList.map((item) => (
             <MyCartCard key={item._id} {...item} />
           ))}

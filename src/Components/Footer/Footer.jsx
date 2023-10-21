@@ -18,7 +18,7 @@ const Footer = () => {
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="container min-h-[80vh] relative z-30 grid grid-cols-4 gap-10 items-start">
+      <div className="container min-h-[80vh] relative z-30 grid grid-cols-4 gap-10 items-start grid-rows-1">
         <div className="w-full col-span-4 sm:col-span-2 flex flex-col justify-center items-start gap-5">
           <Link
             to="/"

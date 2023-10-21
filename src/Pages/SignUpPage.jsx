@@ -77,7 +77,7 @@ const SignUpPage = () => {
   };
 
   return (
-    <div className="fullContainer p-0 grid md:grid-cols-2">
+    <div className="fullContainer p-0 grid md:grid-cols-2 grid-rows-1">
       <div
         className="w-full h-full grid place-items-center"
         style={{
