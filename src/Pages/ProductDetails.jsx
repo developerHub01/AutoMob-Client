@@ -6,6 +6,7 @@ import { BsFillCartFill } from "react-icons/bs";
 
 import Swal from "sweetalert2";
 import { AuthContext } from "../Context/AuthProvider";
+import { serverAPI } from "../Constants/data";
 
 const ProductDetails = () => {
   const { user } = useContext(AuthContext);
@@ -26,7 +27,7 @@ const ProductDetails = () => {
   } = productData;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/product/${id}`)
+    fetch(`${serverAPI}/product/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -40,7 +41,7 @@ const ProductDetails = () => {
   }, [isLoading]);
 
   const handleAdToCart = () => {
-    fetch(`http://localhost:5000/cartlist`, {
+    fetch(`${serverAPI}/cartlist`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

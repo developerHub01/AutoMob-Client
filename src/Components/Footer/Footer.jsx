@@ -28,7 +28,7 @@ const Footer = () => {
           </Link>
           <div className="w-full flex flex-col gap-3">
             <p>
-              AutoVista Premier is your destination for exceptional automobiles.
+              AutoMob Premier is your destination for exceptional automobiles.
               Explore our handpicked collection, embark on thrilling test
               drives, and experience excellence on the road. Your automotive
               journey begins here.

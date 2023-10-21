@@ -20,7 +20,7 @@ const BrandProduct = ({
       <figure className="w-full md:h-72 lg:h-52 relative bg-gray-900 dark:bg-white">
         <Link to={`/category/${productCategory}`}>
           <p className="capitalize absolute inline-block top-2 right-2 px-2 py-1 rounded-full bg-gray-900 text-white z-10 text-sm shadow-lg">
-            {brandName}
+            {productCategory}
           </p>
         </Link>
         <img

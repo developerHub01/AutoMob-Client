@@ -1,5 +1,3 @@
-import React from "react";
-
 const usePasswordVarification = (text) => {
   const upperCaseCheck = (str) => {
     for (let i in str) {

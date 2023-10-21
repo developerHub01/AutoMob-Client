@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { LoadingContext } from "../Context/LoadingProvider";
 import MyCartCard from "./MyCartCard";
 import { AuthContext } from "../Context/AuthProvider";
+import { serverAPI } from "../Constants/data";
 
 const MyCart = () => {
   const { user } = useContext(AuthContext);
@@ -9,7 +10,7 @@ const MyCart = () => {
   const { isLoading, setIsLoading } = useContext(LoadingContext);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/cartlist/${user.email}`)
+    fetch(`${serverAPI}/cartlist/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setCartList((prev) => data);

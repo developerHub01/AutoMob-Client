@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import BrandProduct from "../Components/BrandProduct";
 import { LoadingContext } from "../Context/LoadingProvider";
+import { serverAPI } from "../Constants/data";
 
 const MyCartCard = ({ cartProductId }) => {
   const [productData, setProductData] = useState({});
   const { isLoading, setIsLoading } = useContext(LoadingContext);
   useEffect(() => {
-    fetch(`http://localhost:5000/product/${cartProductId}`)
+    fetch(`${serverAPI}/product/${cartProductId}`)
       .then((res) => res.json())
       .then((data) => {
         setProductData((prev) => data);

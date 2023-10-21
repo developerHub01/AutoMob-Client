@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Swal from "sweetalert2";
 import Select from "react-select";
-import { brandList, categorySelectOption } from "../Constants/data";
+import { brandList, categorySelectOption, serverAPI } from "../Constants/data";
 
 const AddProduct = () => {
   const [productData, setProductData] = useState({
@@ -47,7 +47,7 @@ const AddProduct = () => {
       });
     }
 
-    fetch("http://localhost:5000/addproduct", {
+    fetch(`${serverAPI}/addproduct`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

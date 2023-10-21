@@ -1,10 +1,10 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import Swal from "sweetalert2";
 import Select from "react-select";
 import { useParams } from "react-router-dom";
 import { LoadingContext } from "../Context/LoadingProvider";
-import { brandList, categorySelectOption } from "../Constants/data";
+import { brandList, categorySelectOption, serverAPI } from "../Constants/data";
 
 const AddProduct = () => {
   const { id } = useParams();
@@ -21,7 +21,7 @@ const AddProduct = () => {
   const [productCategory, setProductCategory] = useState("toyota");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/product/${id}`)
+    fetch(`${serverAPI}/product/${id}`)
       .then((res) => res.json())
       .then((data) => {
         const {
@@ -83,7 +83,7 @@ const AddProduct = () => {
       });
     }
 
-    fetch(`http://localhost:5000/product/${id}`, {
+    fetch(`${serverAPI}/product/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import BrandPageAd from "../Components/BrandPageAd/BrandPageAd";
 import BrandProducts from "../Components/BrandProducts";
 import { LoadingContext } from "../Context/LoadingProvider";
+import { serverAPI } from "../Constants/data";
 
 const BrandPage = () => {
   const { id } = useParams();
@@ -10,7 +11,7 @@ const BrandPage = () => {
   const [brandDataList, setBrandDataList] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/brandDataList/${id}`)
+    fetch(`${serverAPI}/brandDataList/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
